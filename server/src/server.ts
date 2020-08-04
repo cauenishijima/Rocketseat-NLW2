@@ -1,7 +1,10 @@
 import express from 'express';
+import routes from './routes';
+
 const app = express();
 
 app.use(express.json());
+app.use(routes);
 
 // Parametros
 // Corpo (Request Body): Dados para criação ou atualização de um registro
@@ -14,8 +17,6 @@ app.use(express.json());
 //      ex.: http://localhost:3001/users?page=2&sort=name
 // E para acessar esses parametros usamos: request.query.page || request.query.sort
 
-app.get('/', (request, response) => {
-    return response.json({message: "Hello World"});
-})
+
 
 app.listen(3001);
